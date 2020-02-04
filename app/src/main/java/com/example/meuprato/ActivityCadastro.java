@@ -40,7 +40,7 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
 
             eTNome.setText(prato.getNome());
             eTIngredientes.setText(prato.getIngredientes());
-            eTPreco.setText(prato.getPrecocusto());
+            eTPreco.setText(String.valueOf(prato.getPrecocusto()));
 
 
         }else {
