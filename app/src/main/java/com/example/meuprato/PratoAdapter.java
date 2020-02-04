@@ -27,12 +27,12 @@ public class PratoAdapter extends ArrayAdapter<Prato> {
         TextView TVNome = (TextView) convertView.findViewById(R.id.TVNome);
         TextView TVPrecocusto = (TextView) convertView.findViewById(R.id.TVPrecoCusto);
         TextView TVIngrediente = (TextView) convertView.findViewById(R.id.TVIngrediente);
-        TextView TVPrecoprod = (TextView) convertView.findViewById(R.id.TVPrecoProd);
+        TextView TVPrecoVenda = (TextView) convertView.findViewById(R.id.TVPrecoVenda);
 
 
         TVNome.setText(prato.getNome().toString());
         TVIngrediente.setText(prato.getIngredientes().toString());
-        TVPrecoprod.setText(String.valueOf(prato.getPrecoprod()));
+        TVPrecoVenda.setText(String.valueOf(prato.getPrecofinal()));
         TVPrecocusto.setText(String.valueOf(prato.getPrecocusto()));
         return convertView;
 

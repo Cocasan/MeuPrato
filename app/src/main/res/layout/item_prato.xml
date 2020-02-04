@@ -91,7 +91,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/TVPrecoProd"
+            android:id="@+id/TVPrecoVenda"
             android:layout_width="91dp"
             android:layout_height="32dp"
 
