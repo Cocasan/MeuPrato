@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public class Prato {
 
     private int codigo;
-    private int precofinal;
+    private double precofinal;
     private String nome;
     private String ingredientes;
-    private int precocusto;
-    private int precoprod;
+    private double precocusto;
+    private double precoprod;
     private boolean excluir;
     private Context context;
 
@@ -40,14 +40,14 @@ public class Prato {
     public void setIngredientes(String ingredientes) {this.ingredientes=ingredientes;}
 
 
-    public int getPrecocusto() {return precocusto;}
+    public double getPrecocusto() {return precocusto;}
 
-    public void setPrecocusto(int precocusto) {this.precocusto=precocusto;}
+    public void setPrecocusto(double precocusto) {this.precocusto=precocusto;}
 
 
-    public int getPrecoprod() {return precoprod;}
+    public double getPrecoprod() {return precoprod;}
 
-    public void setPrecoprod(int precoprod) {this.precoprod=precoprod;}
+    public void setPrecoprod(double precoprod) {this.precoprod=precoprod;}
 
 
     public boolean isExcluir() { return excluir; }
@@ -71,8 +71,8 @@ public class Prato {
                 prato.codigo = cursor.getInt(cursor.getColumnIndex("codigo"));
                 prato.nome = cursor.getString(cursor.getColumnIndex("nome"));
                 prato.ingredientes = cursor.getString(cursor.getColumnIndex("ingredientes"));
-                prato.precocusto = cursor.getInt(cursor.getColumnIndex("precocusto"));
-                prato.precoprod = cursor.getInt(cursor.getColumnIndex("precoprod"));
+                prato.precocusto = cursor.getDouble(cursor.getColumnIndex("precocusto"));
+                prato.precoprod = cursor.getDouble(cursor.getColumnIndex("precoprod"));
                 pratos.add(prato);
 
             }

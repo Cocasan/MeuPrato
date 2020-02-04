@@ -19,8 +19,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "codigo INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                 "nome VARCHAR(60)NOT NULL,\n" +
                 "ingredientes VARCHAR(60) NOT NULL,\n" +
-                "precocusto INTEGER NOT NULL,\n" +
-                "precoprod INTEGER NOT NULL) ");
+                "precocusto DOUBLE NOT NULL,\n" +
+                "precoprod DOUBLE NOT NULL) ");
 
     }
 
