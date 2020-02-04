@@ -1,4 +1,4 @@
-#Tue Feb 04 15:29:51 GMT-03:00 2020
-base.0=C\:\\Users\\thalita.rmacari\\Documents\\MeuPrato-master\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+#Tue Feb 04 16:46:59 GMT-03:00 2020
+base.0=C\:\\Users\\marcelo\\Desktop\\MeuPrato\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

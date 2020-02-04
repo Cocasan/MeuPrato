@@ -4,12 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
 public class Prato {
 
     private int codigo;
+    private int quantidade;
     private double precofinal;
     private String nome;
     private String ingredientes;
@@ -21,38 +23,81 @@ public class Prato {
     public Prato(Context context) {
         this.context = context;
         codigo = -1;
+
+
     }
 
 
+    public int getCodigo() {
+        return codigo;
+    }
 
-    public int getCodigo() {return codigo; }
-
-    public void setCodigo(int codigo) { this.codigo = codigo; }
-
-
-    public String getNome() { return nome; }
-
-    public void setNome(String nome) { this.nome = nome; }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
 
-    public String getIngredientes() { return ingredientes;}
+    public String getNome() {
+        return nome;
+    }
 
-    public void setIngredientes(String ingredientes) {this.ingredientes=ingredientes;}
-
-
-    public double getPrecocusto() {return precocusto;}
-
-    public void setPrecocusto(double precocusto) {this.precocusto=precocusto;}
-
-
-    public double getPrecoprod() {return precoprod;}
-
-    public void setPrecoprod(double precoprod) {this.precoprod=precoprod;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
 
-    public boolean isExcluir() { return excluir; }
+    public String getIngredientes() {
+        return ingredientes;
+    }
 
-    public void setExcluir(boolean excluir) { this.excluir = excluir; }
+    public void setIngredientes(String ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+
+    public double getPrecocusto() {
+        return precocusto;
+    }
+
+    public void setPrecocusto(double precocusto) {
+        this.precocusto = precocusto;
+    }
+
+
+    public double getPrecoprod() {
+        return precoprod;
+    }
+
+    public void setPrecoprod(double precoprod) {
+        this.precoprod = precoprod;
+    }
+
+
+    public boolean isExcluir() {
+        return excluir;
+    }
+
+    public void setExcluir(boolean excluir) {
+        this.excluir = excluir;
+    }
+
+
+    public void setPrecofinal(double precofinal) {
+        this.precofinal = precofinal;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    public double getPrecofinal() {
+
+        return(precoprod - precocusto) * quantidade;
+    }
+
 
     public ArrayList<Prato> getPratos() {
         DBHelper dbHelper = null;
@@ -110,40 +155,37 @@ public class Prato {
                 sql = "UPDATE prato set nome = ?, ingredientes = ?, precocusto = ?,precoprod =? WHERE codigo = ?";
             }
 
-        sqLiteDatabase.beginTransaction();
-        SQLiteStatement sqLiteStatement = sqLiteDatabase.compileStatement(sql);
-        sqLiteStatement.clearBindings();
-        sqLiteStatement.bindString(1, nome);
-        sqLiteStatement.bindString(2, ingredientes);
-        sqLiteStatement.bindString (3, String.valueOf(precocusto));
-        sqLiteStatement.bindString (4, String.valueOf(23));
+            sqLiteDatabase.beginTransaction();
+            SQLiteStatement sqLiteStatement = sqLiteDatabase.compileStatement(sql);
+            sqLiteStatement.clearBindings();
+            sqLiteStatement.bindString(1, nome);
+            sqLiteStatement.bindString(2, ingredientes);
+            sqLiteStatement.bindString(3, String.valueOf(precocusto));
+            sqLiteStatement.bindString(4, String.valueOf(23));
 
 
-        if (codigo != -1)
-            sqLiteStatement.bindString(4, String.valueOf(codigo));
-        sqLiteStatement.executeInsert();
-        sqLiteDatabase.setTransactionSuccessful();
-        sqLiteDatabase.endTransaction();
+            if (codigo != -1)
+                sqLiteStatement.bindString(4, String.valueOf(codigo));
+            sqLiteStatement.executeInsert();
+            sqLiteDatabase.setTransactionSuccessful();
+            sqLiteDatabase.endTransaction();
 
 
-        return true;
+            return true;
 
-    }  catch (Exception e) {
-        e.printStackTrace();
-        sqLiteDatabase.endTransaction();
-        return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            sqLiteDatabase.endTransaction();
+            return false;
 
         } finally {
-        if (sqLiteDatabase != null)
-        sqLiteDatabase.close();
-        if (dbHelper != null)
-        dbHelper.close();
+            if (sqLiteDatabase != null)
+                sqLiteDatabase.close();
+            if (dbHelper != null)
+                dbHelper.close();
         }
 
     }
-
-
-
 
 
     public boolean Excluir() {
@@ -174,44 +216,46 @@ public class Prato {
 
     }
 
-         public void pesquisaPrato(int codigo) {
-         DBHelper dbHelper = null;
-          SQLiteDatabase sqLiteDatabase = null;
-          Cursor cursor = null;
+    public void pesquisaPrato(int codigo) {
+        DBHelper dbHelper = null;
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
 
-             try {
-                 dbHelper = new DBHelper(context);
-                 sqLiteDatabase = dbHelper.getReadableDatabase();
+        try {
+            dbHelper = new DBHelper(context);
+            sqLiteDatabase = dbHelper.getReadableDatabase();
 
-                 cursor = sqLiteDatabase.query("prato", null,
-                         "codigo = ?", new String[]{String.valueOf(codigo)},
-                         null, null, null);
+            cursor = sqLiteDatabase.query("prato", null,
+                    "codigo = ?", new String[]{String.valueOf(codigo)},
+                    null, null, null);
 
-                 excluir = true;
+            excluir = true;
 
-                 while (cursor.moveToNext()) {
+            while (cursor.moveToNext()) {
 
-                     this.codigo = cursor.getInt(cursor.getColumnIndex("codigo"));
-                     nome = cursor.getString(cursor.getColumnIndex("nome"));
-                     ingredientes = cursor.getString(cursor.getColumnIndex("ingredientes"));
-                     precocusto = cursor.getInt(cursor.getColumnIndex("precocusto"));
-                     precoprod = cursor.getInt(cursor.getColumnIndex("precoprod"));
-                     excluir = false;
-                 }
+                this.codigo = cursor.getInt(cursor.getColumnIndex("codigo"));
+                nome = cursor.getString(cursor.getColumnIndex("nome"));
+                ingredientes = cursor.getString(cursor.getColumnIndex("ingredientes"));
+                precocusto = cursor.getInt(cursor.getColumnIndex("precocusto"));
+                precoprod = cursor.getInt(cursor.getColumnIndex("precoprod"));
+                excluir = false;
+            }
 
-             } catch (Exception e) {
-                 e.printStackTrace();
-             } finally {
-                 if ((cursor != null) && (!cursor.isClosed()))
-                     cursor.close();
-                 if (sqLiteDatabase != null)
-                     sqLiteDatabase.close();
-                 if (dbHelper != null)
-                     dbHelper.close();
-             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if ((cursor != null) && (!cursor.isClosed()))
+                cursor.close();
+            if (sqLiteDatabase != null)
+                sqLiteDatabase.close();
+            if (dbHelper != null)
+                dbHelper.close();
+        }
 
 
-         }
+    }
 
 }
+
+
 
