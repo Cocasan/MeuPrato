@@ -20,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "nome VARCHAR(60)NOT NULL,\n" +
                 "ingredientes VARCHAR(60) NOT NULL,\n" +
                 "precocusto DOUBLE NOT NULL,\n" +
+                "precofinal DOUBLE NOT NULL,\n" +
                 "precoprod DOUBLE NOT NULL) ");
 
     }

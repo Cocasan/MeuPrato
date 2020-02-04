@@ -149,7 +149,7 @@ public class Prato {
 
             if (codigo == -1) {
 
-                sql = "INSERT INTO prato (nome,ingredientes,precocusto,precoprod) VALUES (?,?,?,?)";
+                sql = "INSERT INTO prato (nome,ingredientes,precocusto,precofinal, precoprod) VALUES (?,?,?,?,?)";
 
             } else {
                 sql = "UPDATE prato set nome = ?, ingredientes = ?, precocusto = ?,precoprod =? WHERE codigo = ?";
@@ -161,7 +161,8 @@ public class Prato {
             sqLiteStatement.bindString(1, nome);
             sqLiteStatement.bindString(2, ingredientes);
             sqLiteStatement.bindString(3, String.valueOf(precocusto));
-            sqLiteStatement.bindString(4, String.valueOf(23));
+            sqLiteStatement.bindString(4, String.valueOf(getPrecofinal()));
+            sqLiteStatement.bindString(5, String.valueOf(111111));
 
 
             if (codigo != -1)
