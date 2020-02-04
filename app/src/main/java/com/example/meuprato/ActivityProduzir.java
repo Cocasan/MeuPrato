@@ -3,6 +3,9 @@ package com.example.meuprato;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Spinner;
+
+import java.util.List;
 
 public class ActivityProduzir extends AppCompatActivity {
 

@@ -64,13 +64,14 @@
             android:layout_height="29dp"
             android:text="Preço de Custo:"
             android:textSize="20dp" />
-
         <TextView
-            android:id="@+id/TVNome5"
-            android:layout_width="153dp"
-            android:layout_height="29dp"
-            android:text="Preço de Venda:"
+            android:id="@+id/TVPrecoCusto"
+            android:layout_width="91dp"
+            android:layout_height="32dp"
+            android:text="TextView"
             android:textSize="20dp" />
+
+
 
     </TableRow>
 
@@ -80,11 +81,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp">
 
+
+
         <TextView
-            android:id="@+id/TVPrecoCusto"
-            android:layout_width="91dp"
-            android:layout_height="32dp"
-            android:text="TextView"
+            android:id="@+id/TVNome5"
+            android:layout_width="153dp"
+            android:layout_height="29dp"
+            android:text="Preço de Venda:"
             android:textSize="20dp" />
 
         <TextView
