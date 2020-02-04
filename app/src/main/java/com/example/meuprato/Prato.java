@@ -95,7 +95,7 @@ public class Prato {
     }
     public double getPrecofinal() {
 
-        return(precoprod - precocusto) * quantidade;
+        return(5 + precocusto);
     }
 
 
