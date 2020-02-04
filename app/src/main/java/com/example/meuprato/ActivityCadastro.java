@@ -23,16 +23,20 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        eTNome = (EditText) findViewById(R.id.eTNome);
-        eTIngredientes = (EditText) findViewById(R.id.eTIngredientes);
-        eTPreco = (EditText) findViewById(R.id.eTPreco);
-        btnCadastro = (Button) findViewById(R.id.btnCadastro);
-        btnCancelar = (Button) findViewById(R.id.btnCancelar);
-        btnExcluir = (Button) findViewById(R.id.btnExcluir);
+        eTNome =  findViewById(R.id.eTNome);
+        eTIngredientes =  findViewById(R.id.eTIngredientes);
+        eTPreco = findViewById(R.id.eTPreco);
+        btnCadastro =  findViewById(R.id.btnCadastro);
+        btnCancelar =  findViewById(R.id.btnCancelar);
+        btnExcluir =  findViewById(R.id.btnExcluir);
 
         btnCadastro.setOnClickListener(this);
         btnCancelar.setOnClickListener(this);
         btnExcluir.setOnClickListener(this);
+        try {
+
+
+
         if(getIntent().getExtras() != null){
             setTitle(getString(R.string.titulo_editando));
             int codigo = getIntent().getExtras().getInt("consulta");
@@ -40,7 +44,7 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
 
             eTNome.setText(prato.getNome());
             eTIngredientes.setText(prato.getIngredientes());
-            eTPreco.setText(prato.getPrecocusto());
+            eTPreco.setText(String.valueOf(prato.getPrecocusto()));
 
 
         }else {
@@ -51,6 +55,9 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
         if (prato.getCodigo() == -1)
             btnExcluir.setEnabled(false);
 
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

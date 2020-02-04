@@ -210,7 +210,7 @@ public class Prato {
                      dbHelper.close();
              }
 
-             ;
+
          }
 
 }
