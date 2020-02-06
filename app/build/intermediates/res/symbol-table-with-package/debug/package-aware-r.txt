@@ -661,7 +661,7 @@ id TVNome3
 id TVNome4
 id TVNome5
 id TVPrecoCusto
-id TVPrecoProd
+id TVPrecoVenda
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -788,8 +788,8 @@ id showCustom
 id showHome
 id showTitle
 id spacer
-id spinner
 id split_action_bar
+id spnPratos
 id spread
 id spread_inside
 id src_atop

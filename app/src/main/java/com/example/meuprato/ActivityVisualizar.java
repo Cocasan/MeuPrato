@@ -26,9 +26,9 @@ public class ActivityVisualizar extends AppCompatActivity implements View.OnClic
         setTitle("Visualizar Pratos");
 
         listViewPratos = (ListView) findViewById(R.id.listViewPratos);
-        btnVoltar = (Button) findViewById(R.id.btnVoltar);
+       btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
-        btnVoltar.setOnClickListener(this);
+       btnVoltar.setOnClickListener(this);
         listViewPratos.setOnItemClickListener(this);
 
         pratos = new Prato(this).getPratos();
@@ -50,6 +50,7 @@ public class ActivityVisualizar extends AppCompatActivity implements View.OnClic
         startActivity(intent);
 
     }
+
     @Override
     protected void onResume() {
         super.onResume();

@@ -23,8 +23,15 @@ public class Prato {
     public Prato(Context context) {
         this.context = context;
         codigo = -1;
+    }
 
+    public Prato(){
 
+    }
+
+    @Override
+    public String toString(){
+        return this.nome;
     }
 
 
@@ -137,6 +144,50 @@ public class Prato {
 
     }
 
+    public ArrayList<Prato> getPratosSpinner() {
+        DBHelper dbHelper = null;
+        SQLiteDatabase sqLiteDatabase = null;
+        Cursor cursor = null;
+        ArrayList<Prato> pratos = new ArrayList<>();
+
+        try {
+            dbHelper = new DBHelper(context);
+            sqLiteDatabase = dbHelper.getReadableDatabase();
+
+
+
+           cursor = sqLiteDatabase.query("prato", null,
+                  null, null, null, null, null);
+
+
+
+            while (cursor.moveToNext()) {
+                Prato prato = new Prato(context);
+
+                prato.nome = cursor.getString(cursor.getColumnIndex("nome"));
+
+                pratos.add(prato);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if ((cursor != null) && (!cursor.isClosed()))
+                cursor.close();
+            if (sqLiteDatabase != null)
+                sqLiteDatabase.close();
+            if (dbHelper != null)
+                dbHelper.close();
+        }
+
+        return pratos;
+
+    }
+
+
+
+
     public boolean Salvar() {
         DBHelper dbHelper = null;
         SQLiteDatabase sqLiteDatabase = null;
@@ -145,6 +196,7 @@ public class Prato {
             dbHelper = new DBHelper(context);
             sqLiteDatabase = dbHelper.getReadableDatabase();
             String sql = "";
+
 
 
             if (codigo == -1) {

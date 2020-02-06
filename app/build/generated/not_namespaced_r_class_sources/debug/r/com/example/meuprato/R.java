@@ -3415,7 +3415,7 @@ public final class R {
     public static final int TVNome4=0x7f07000a;
     public static final int TVNome5=0x7f07000b;
     public static final int TVPrecoCusto=0x7f07000c;
-    public static final int TVPrecoProd=0x7f07000d;
+    public static final int TVPrecoVenda=0x7f07000d;
     public static final int action_bar=0x7f07000e;
     public static final int action_bar_activity_content=0x7f07000f;
     public static final int action_bar_container=0x7f070010;
@@ -3542,8 +3542,8 @@ public final class R {
     public static final int showHome=0x7f070089;
     public static final int showTitle=0x7f07008a;
     public static final int spacer=0x7f07008b;
-    public static final int spinner=0x7f07008c;
-    public static final int split_action_bar=0x7f07008d;
+    public static final int split_action_bar=0x7f07008c;
+    public static final int spnPratos=0x7f07008d;
     public static final int spread=0x7f07008e;
     public static final int spread_inside=0x7f07008f;
     public static final int src_atop=0x7f070090;

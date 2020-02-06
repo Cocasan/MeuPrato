@@ -660,7 +660,7 @@ int id TVNome3 0x7f070009
 int id TVNome4 0x7f07000a
 int id TVNome5 0x7f07000b
 int id TVPrecoCusto 0x7f07000c
-int id TVPrecoProd 0x7f07000d
+int id TVPrecoVenda 0x7f07000d
 int id action_bar 0x7f07000e
 int id action_bar_activity_content 0x7f07000f
 int id action_bar_container 0x7f070010
@@ -787,8 +787,8 @@ int id showCustom 0x7f070088
 int id showHome 0x7f070089
 int id showTitle 0x7f07008a
 int id spacer 0x7f07008b
-int id spinner 0x7f07008c
-int id split_action_bar 0x7f07008d
+int id split_action_bar 0x7f07008c
+int id spnPratos 0x7f07008d
 int id spread 0x7f07008e
 int id spread_inside 0x7f07008f
 int id src_atop 0x7f070090

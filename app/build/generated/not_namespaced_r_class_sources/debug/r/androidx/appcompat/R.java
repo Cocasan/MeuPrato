@@ -700,7 +700,7 @@ public final class R {
         public static final int select_dialog_listview = 0x7f070086;
         public static final int shortcut = 0x7f070087;
         public static final int spacer = 0x7f07008b;
-        public static final int split_action_bar = 0x7f07008d;
+        public static final int split_action_bar = 0x7f07008c;
         public static final int src_atop = 0x7f070090;
         public static final int src_in = 0x7f070091;
         public static final int src_over = 0x7f070092;
