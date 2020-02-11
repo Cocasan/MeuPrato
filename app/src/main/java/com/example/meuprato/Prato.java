@@ -55,7 +55,7 @@ public class Prato {
     }
 
     public double getPrecofinal() {
-        return precofinal;
+        return (precocusto * 0.70)+ precocusto;
     }
 
     public void setPrecofinal(double precofinal) {
@@ -96,6 +96,12 @@ public class Prato {
 
     public void setExcluir(boolean excluir) {
         this.excluir = excluir;
+    }
+
+
+    public double cadastro(){
+        precocusto = (precocusto * 0.70)+ precocusto;
+                return precofinal;
     }
 
 
