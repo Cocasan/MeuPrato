@@ -8,21 +8,23 @@
 
     <Button
         android:id="@+id/btnExcluir"
-        android:layout_width="99dp"
-        android:layout_height="51dp"
+        android:layout_width="109dp"
+        android:layout_height="53dp"
         android:text="Excluir"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.858"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCancelar"
         app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/btnCancelar"
-        android:layout_width="106dp"
-        android:layout_height="51dp"
+        android:layout_width="135dp"
+        android:layout_height="49dp"
         android:text="Cancelar"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.855"
@@ -32,15 +34,16 @@
 
     <Button
         android:id="@+id/btnCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="50dp"
         android:text="Cadastrar"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintVertical_bias="0.707" />
 
     <EditText
         android:id="@+id/eTNome"
@@ -107,6 +110,6 @@
         app:layout_constraintStart_toEndOf="@+id/textViewFixo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.28"
-        app:srcCompat="@drawable/massa" />
+        app:srcCompat="@drawable/espaguete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
