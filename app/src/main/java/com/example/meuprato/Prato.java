@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
-import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -22,16 +21,20 @@ public class Prato {
 
     public Prato(Context context) {
         this.context = context;
-        codigo = -1;
+        setCodigo(-1);
     }
 
-    public Prato(){
+    public Prato() {
 
+    }
+
+    public boolean isExcluir() {
+        return excluir;
     }
 
     @Override
-    public String toString(){
-        return this.nome;
+    public String toString() {
+        return this.getNome();
     }
 
 
@@ -43,6 +46,21 @@ public class Prato {
         this.codigo = codigo;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getPrecofinal() {
+        return precofinal;
+    }
+
+    public void setPrecofinal(double precofinal) {
+        this.precofinal = precofinal;
+    }
 
     public String getNome() {
         return nome;
@@ -52,7 +70,6 @@ public class Prato {
         this.nome = nome;
     }
 
-
     public String getIngredientes() {
         return ingredientes;
     }
@@ -60,7 +77,6 @@ public class Prato {
     public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
     }
-
 
     public double getPrecocusto() {
         return precocusto;
@@ -70,7 +86,6 @@ public class Prato {
         this.precocusto = precocusto;
     }
 
-
     public double getPrecoprod() {
         return precoprod;
     }
@@ -79,31 +94,12 @@ public class Prato {
         this.precoprod = precoprod;
     }
 
-
-    public boolean isExcluir() {
-        return excluir;
-    }
-
     public void setExcluir(boolean excluir) {
         this.excluir = excluir;
     }
 
 
-    public void setPrecofinal(double precofinal) {
-        this.precofinal = precofinal;
-    }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    public double getPrecofinal() {
-
-        return(5 + precocusto);
-    }
 
 
     public ArrayList<Prato> getPratos() {
@@ -120,11 +116,11 @@ public class Prato {
 
             while (cursor.moveToNext()) {
                 Prato prato = new Prato(context);
-                prato.codigo = cursor.getInt(cursor.getColumnIndex("codigo"));
-                prato.nome = cursor.getString(cursor.getColumnIndex("nome"));
-                prato.ingredientes = cursor.getString(cursor.getColumnIndex("ingredientes"));
-                prato.precocusto = cursor.getDouble(cursor.getColumnIndex("precocusto"));
-                prato.precoprod = cursor.getDouble(cursor.getColumnIndex("precoprod"));
+                prato.setCodigo(cursor.getInt(cursor.getColumnIndex("codigo")));
+                prato.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+                prato.setIngredientes(cursor.getString(cursor.getColumnIndex("ingredientes")));
+                prato.setPrecocusto(cursor.getDouble(cursor.getColumnIndex("precocusto")));
+                prato.setPrecoprod(cursor.getDouble(cursor.getColumnIndex("precoprod")));
                 pratos.add(prato);
 
             }
@@ -155,16 +151,14 @@ public class Prato {
             sqLiteDatabase = dbHelper.getReadableDatabase();
 
 
-
-           cursor = sqLiteDatabase.query("prato", null,
-                  null, null, null, null, null);
-
+            cursor = sqLiteDatabase.query("prato", null,
+                    null, null, null, null, null);
 
 
             while (cursor.moveToNext()) {
                 Prato prato = new Prato(context);
 
-                prato.nome = cursor.getString(cursor.getColumnIndex("nome"));
+                prato.setNome(cursor.getString(cursor.getColumnIndex("nome")));
 
                 pratos.add(prato);
 
@@ -186,8 +180,6 @@ public class Prato {
     }
 
 
-
-
     public boolean Salvar() {
         DBHelper dbHelper = null;
         SQLiteDatabase sqLiteDatabase = null;
@@ -198,8 +190,7 @@ public class Prato {
             String sql = "";
 
 
-
-            if (codigo == -1) {
+            if (getCodigo() == -1) {
 
                 sql = "INSERT INTO prato (nome,ingredientes,precocusto,precofinal, precoprod) VALUES (?,?,?,?,?)";
 
@@ -210,15 +201,15 @@ public class Prato {
             sqLiteDatabase.beginTransaction();
             SQLiteStatement sqLiteStatement = sqLiteDatabase.compileStatement(sql);
             sqLiteStatement.clearBindings();
-            sqLiteStatement.bindString(1, nome);
-            sqLiteStatement.bindString(2, ingredientes);
-            sqLiteStatement.bindString(3, String.valueOf(precocusto));
+            sqLiteStatement.bindString(1, getNome());
+            sqLiteStatement.bindString(2, getIngredientes());
+            sqLiteStatement.bindString(3, String.valueOf(getPrecocusto()));
             sqLiteStatement.bindString(4, String.valueOf(getPrecofinal()));
             sqLiteStatement.bindString(5, String.valueOf(111111));
 
 
-            if (codigo != -1)
-                sqLiteStatement.bindString(4, String.valueOf(codigo));
+            if (getCodigo() != -1)
+                sqLiteStatement.bindString(4, String.valueOf(getCodigo()));
             sqLiteStatement.executeInsert();
             sqLiteDatabase.setTransactionSuccessful();
             sqLiteDatabase.endTransaction();
@@ -249,8 +240,8 @@ public class Prato {
             dbHelper = new DBHelper(context);
             sqLiteDatabase = dbHelper.getReadableDatabase();
             sqLiteDatabase.beginTransaction();
-            sqLiteDatabase.delete("prato", "codigo = ?", new String[]{String.valueOf(codigo)});
-            excluir = true;
+            sqLiteDatabase.delete("prato", "codigo = ?", new String[]{String.valueOf(getCodigo())});
+            setExcluir(true);
             sqLiteDatabase.setTransactionSuccessful();
             sqLiteDatabase.endTransaction();
             return true;
@@ -282,16 +273,16 @@ public class Prato {
                     "codigo = ?", new String[]{String.valueOf(codigo)},
                     null, null, null);
 
-            excluir = true;
+            setExcluir(true);
 
             while (cursor.moveToNext()) {
 
-                this.codigo = cursor.getInt(cursor.getColumnIndex("codigo"));
-                nome = cursor.getString(cursor.getColumnIndex("nome"));
-                ingredientes = cursor.getString(cursor.getColumnIndex("ingredientes"));
-                precocusto = cursor.getInt(cursor.getColumnIndex("precocusto"));
-                precoprod = cursor.getInt(cursor.getColumnIndex("precoprod"));
-                excluir = false;
+                this.setCodigo(cursor.getInt(cursor.getColumnIndex("codigo")));
+                setNome(cursor.getString(cursor.getColumnIndex("nome")));
+                setIngredientes(cursor.getString(cursor.getColumnIndex("ingredientes")));
+                setPrecocusto(cursor.getInt(cursor.getColumnIndex("precocusto")));
+                setPrecoprod(cursor.getInt(cursor.getColumnIndex("precoprod")));
+                setExcluir(false);
             }
 
         } catch (Exception e) {
