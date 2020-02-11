@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class ActivityCadastro extends AppCompatActivity implements View.OnClickListener{
+public class ActivityCadastro extends AppCompatActivity implements View.OnClickListener {
 
     private EditText eTNome;
     private EditText eTIngredientes;
@@ -23,12 +23,12 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        eTNome =  findViewById(R.id.eTNome);
-        eTIngredientes =  findViewById(R.id.eTIngredientes);
+        eTNome = findViewById(R.id.eTNome);
+        eTIngredientes = findViewById(R.id.eTIngredientes);
         eTPreco = findViewById(R.id.eTPreco);
-        btnCadastro =  findViewById(R.id.btnCadastro);
-        btnCancelar =  findViewById(R.id.btnCancelar);
-        btnExcluir =  findViewById(R.id.btnExcluir);
+        btnCadastro = findViewById(R.id.btnCadastro);
+        btnCancelar = findViewById(R.id.btnCancelar);
+        btnExcluir = findViewById(R.id.btnExcluir);
 
         btnCadastro.setOnClickListener(this);
         btnCancelar.setOnClickListener(this);
@@ -36,33 +36,32 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
         try {
 
 
+            if (getIntent().getExtras() != null) {
+                setTitle(getString(R.string.titulo_editando));
+                int codigo = getIntent().getExtras().getInt("consulta");
+                prato.pesquisaPrato(codigo);
 
-        if(getIntent().getExtras() != null){
-            setTitle(getString(R.string.titulo_editando));
-            int codigo = getIntent().getExtras().getInt("consulta");
-            prato.pesquisaPrato(codigo);
-
-            eTNome.setText(prato.getNome());
-            eTIngredientes.setText(prato.getIngredientes());
-            eTPreco.setText(String.valueOf(prato.getPrecocusto()));
+                eTNome.setText(prato.getNome());
+                eTIngredientes.setText(prato.getIngredientes());
+                eTPreco.setText(String.valueOf(prato.getPrecocusto()));
 
 
-        }else {
-            setTitle(getString(R.string.titulo_incluindo));
-        }
+            } else {
+                setTitle(getString(R.string.titulo_incluindo));
+            }
 
-        btnExcluir.setEnabled(true);
-        if (prato.getCodigo() == -1)
-            btnExcluir.setEnabled(false);
+            btnExcluir.setEnabled(true);
+            if (prato.getCodigo() == -1)
+                btnExcluir.setEnabled(false);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnExcluir: {
                 prato.Excluir();
                 finish();
@@ -74,20 +73,20 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
                 prato.setIngredientes(eTIngredientes.getText().toString());
                 prato.setPrecocusto(Integer.parseInt(eTPreco.getText().toString()));
 
-                if(prato.getNome().equals("")){
+                if (prato.getNome().equals("")) {
                     eTNome.setError(getString(R.string.obrigatorio));
                     valido = false;
                 }
-                if(prato.getIngredientes().equals("")){
+                if (prato.getIngredientes().equals("")) {
                     eTIngredientes.setError(getString(R.string.obrigatorio));
                     valido = false;
                 }
-                if(prato.getPrecocusto() == 0){
+                if (prato.getPrecocusto() == 0) {
                     eTPreco.setError(getString(R.string.obrigatorio));
                     valido = false;
                 }
 
-                if(valido){
+                if (valido) {
                     prato.Salvar();
                     finish();
                 }
