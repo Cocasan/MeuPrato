@@ -634,8 +634,6 @@ drawable grafico
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable massa
-drawable massaaa
-drawable meuprato
 drawable note
 drawable notification_action_background
 drawable notification_bg
