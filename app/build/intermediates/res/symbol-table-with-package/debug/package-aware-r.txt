@@ -343,6 +343,7 @@ attr windowNoTitle
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
+color Black
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -633,6 +634,8 @@ drawable grafico
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable massa
+drawable massaaa
+drawable meuprato
 drawable note
 drawable notification_action_background
 drawable notification_bg
@@ -738,6 +741,7 @@ id ifRoom
 id image
 id imageView
 id imageView2
+id imageView3
 id imageView4
 id imageView5
 id info
@@ -807,6 +811,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView2
 id textViewFixo
 id textViewFixo2
 id textViewFixo3
