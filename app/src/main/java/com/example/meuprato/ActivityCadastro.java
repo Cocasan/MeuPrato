@@ -71,7 +71,7 @@ public class ActivityCadastro extends AppCompatActivity implements View.OnClickL
                 boolean valido = true;
                 prato.setNome(eTNome.getText().toString());
                 prato.setIngredientes(eTIngredientes.getText().toString());
-                prato.setPrecocusto(Integer.parseInt(eTPreco.getText().toString()));
+                prato.setPrecocusto(Double.parseDouble(eTPreco.getText().toString()));
 
                 if (prato.getNome().equals("")) {
                     eTNome.setError(getString(R.string.obrigatorio));
