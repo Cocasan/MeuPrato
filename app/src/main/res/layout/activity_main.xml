@@ -6,41 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnVisualiza"
-        android:layout_width="144dp"
-        android:layout_height="50dp"
-        android:text="Visualizar"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.219" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="136dp"
-        android:layout_height="98dp"
+        android:layout_width="137dp"
+        android:layout_height="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
+        app:layout_constraintVertical_bias="0.066"
         app:srcCompat="@drawable/calorias" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="107dp"
         android:layout_height="109dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btnCadastro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962"
+        app:layout_constraintVertical_bias="0.98"
         app:srcCompat="@drawable/massa" />
 
     <Button
@@ -49,37 +37,13 @@
         android:layout_height="51dp"
         android:text="Produzir"
         android:textSize="20dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="117dp"
-        android:layout_height="107dp"
-        app:layout_constraintBottom_toTopOf="@+id/bTCadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962"
-        app:srcCompat="@drawable/note" />
-
-    <Button
-        android:id="@+id/bTCadastro"
-        android:layout_width="150dp"
-        android:layout_height="51dp"
-        android:text="Cadastrar"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintVertical_bias="0.973" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -87,9 +51,62 @@
         android:layout_height="108dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837"
+        app:layout_constraintVertical_bias="0.471"
         app:srcCompat="@drawable/grafico" />
+
+    <Button
+        android:id="@+id/btnVisualiza"
+        android:layout_width="144dp"
+        android:layout_height="50dp"
+        android:text="Visualizar"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="117dp"
+        android:layout_height="107dp"
+        app:layout_constraintBottom_toTopOf="@+id/bTCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965"
+        app:srcCompat="@drawable/note" />
+
+    <Button
+        android:id="@+id/bTCadastro"
+        android:layout_width="144dp"
+        android:layout_height="51dp"
+        android:text="Cadastrar"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meu Prato"
+        android:textColor="@color/Black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.263" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
